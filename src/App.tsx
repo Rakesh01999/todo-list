@@ -3,6 +3,16 @@ import "./App.css";
 import { ITask } from "./interfaces";
 import TodoTask from "./Components/TodoTask";
 
+// ------------ Prime React -------------
+import 'primereact/resources/themes/lara-light-indigo/theme.css'; // Theme for PrimeReact
+import 'primereact/resources/primereact.min.css'; // Core CSS for PrimeReact
+import 'primeicons/primeicons.css'; // Icons
+
+
+import { Button } from 'primereact/button';
+        
+
+
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDeadline] = useState<number>(0);
@@ -38,6 +48,11 @@ const App: FC = () => {
 
   return (
     <div className="App">
+
+      <div>
+        <h2>To-Do</h2>
+      </div>
+
       <div className="header">
         <div className="inputContainer">
           <input
@@ -55,13 +70,16 @@ const App: FC = () => {
             onChange={handleChange}
           />
         </div>
-        <button onClick={addTask}>Add Task</button>
+        <Button severity="success" onClick={addTask}>Add Task</Button>
+        
       </div>
       <div className="todoList">
         {todoList.map((task: ITask, key: number) => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />;
         })}
       </div>
+      
+
     </div>
   );
 };
