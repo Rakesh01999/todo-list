@@ -114,6 +114,9 @@ const App: FC = () => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />;
         })}
       </div>
+      <div>
+        <h3>Developed By Rakesh Biswas</h3>
+      </div>
     </div>
   );
 };
