@@ -4,7 +4,6 @@ import { ITask } from "./interfaces";
 import TodoTask from "./Components/TodoTask";
 // import "./index.css"; // Import Tailwind CSS
 
-
 // ------------ Prime React -------------
 import "primereact/resources/themes/lara-light-indigo/theme.css"; // Theme for PrimeReact
 import "primereact/resources/primereact.min.css"; // Core CSS for PrimeReact
@@ -83,7 +82,7 @@ const App: FC = () => {
       <Toast ref={toast} />
 
       <div>
-        <h2 className="text-blue-600">To-Do List</h2>
+        <h2>To-Do List</h2>
       </div>
 
       <div className="header">
@@ -103,11 +102,10 @@ const App: FC = () => {
             onChange={handleChange}
           />
         </div>
-        
+
         <Button severity="success" onClick={addTask}>
           Add Task
         </Button>
-
       </div>
       <div className="todoList">
         {todoList.map((task: ITask, key: number) => {
