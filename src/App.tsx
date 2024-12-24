@@ -2,21 +2,24 @@ import React, { ChangeEvent, FC, useRef, useState } from "react";
 import "./App.css";
 import { ITask } from "./interfaces";
 import TodoTask from "./Components/TodoTask";
-// import "./index.css"; // Import Tailwind CSS
 
-// ------------ Prime React -------------
-import "primereact/resources/themes/lara-light-indigo/theme.css"; // Theme for PrimeReact
-import "primereact/resources/primereact.min.css"; // Core CSS for PrimeReact
-import "primeicons/primeicons.css"; // Icons
+// Prime React
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { Toast } from "primereact/toast";
+import Sidebar from "./Components/Sidebar";
 
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDeadline] = useState<number>(0);
   const [todoList, setTodoList] = useState<ITask[]>([]);
+
+  // State for Sidebar visibility
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
   // Ref for Toast notifications
   const toast = useRef<Toast>(null);
@@ -85,6 +88,9 @@ const App: FC = () => {
         <h2>To-Do List</h2>
       </div>
 
+      {/* Sidebar Component with required props */}
+      {/* <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
+
       <div className="header">
         <div className="inputContainer">
           <InputText
@@ -107,12 +113,14 @@ const App: FC = () => {
           Add Task
         </Button>
       </div>
+
       <div className="todoList">
         {todoList.map((task: ITask, key: number) => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />;
         })}
       </div>
-      <div>
+
+      <div className="footer">
         <h3>Developed By Rakesh Biswas</h3>
       </div>
     </div>
@@ -120,3 +128,4 @@ const App: FC = () => {
 };
 
 export default App;
+
