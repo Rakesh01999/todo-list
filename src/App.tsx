@@ -121,7 +121,7 @@ const App: FC = () => {
       </div>
 
       <div className="footer">
-        <h3>Developed By Rakesh Biswas</h3>
+        <h3>Developed By © Rakesh Biswas</h3>
       </div>
     </div>
   );
