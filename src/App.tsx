@@ -110,7 +110,7 @@ const App: FC = () => {
         </div>
 
         <Button severity="success" onClick={addTask}>
-          Add Task
+          Click to Add Task
         </Button>
       </div>
 
